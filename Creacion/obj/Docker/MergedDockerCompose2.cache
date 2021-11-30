@@ -1,0 +1,31 @@
+services:
+  creacion:
+    build:
+      context: C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\Creacion
+      dockerfile: Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27018
+    image: creacion
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+  mongo:
+    command:
+    - mongod
+    - --port
+    - "27018"
+    container_name: mongo
+    image: mongo
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 27018
+      published: 27018
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose11051082192988181488_default

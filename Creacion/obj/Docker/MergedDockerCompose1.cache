@@ -1,0 +1,54 @@
+services:
+  creacion:
+    build:
+      context: C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\Creacion
+      dockerfile: Dockerfile
+      args:
+        source: obj/Docker/empty/
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Creacion
+    container_name: Creacion
+    entrypoint:
+    - cmd
+    - /c
+    - start /B C:\ServiceMonitor.exe w3svc & C:\remote_debugger\x64\msvsmon.exe /noauth
+      /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn
+      /timeout:2147483646
+    environment:
+      DEV_ENVIRONMENT: "1"
+      VBCSCOMPILER_TTL: "604800"
+      WAIT_HOSTS: mongo:27018
+    image: creacion:dev
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\Creacion
+      target: C:\inetpub\wwwroot
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Remote
+        Debugger
+      target: C:\remote_debugger
+      read_only: true
+      bind:
+        create_host_path: true
+  mongo:
+    hostname: mongo
+    image: mongo:3.4
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 27018
+      published: 27018
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose11051082192988181488_default
