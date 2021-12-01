@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  creation_ms:
+    image: ${DOCKER_REGISTRY-}creationms
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  couchdb:
+    image: couchdb:latest
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=asdfg123
+    volumes:
+        - ./dbdata:/opt/couchdb/data
