@@ -6,13 +6,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "49155:49155"
+    expose:
+      - "49155"
 
   couchdb:
     image: couchdb:latest
     ports:
-      - "5984:5984"
+      - "5985:5984"
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=asdfg123
-    volumes:
-        - ./dbdata:/opt/couchdb/data

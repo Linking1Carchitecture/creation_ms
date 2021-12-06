@@ -24,6 +24,7 @@ namespace creation_ms.Controllers
         }
 
         [HttpPost]
+        [Route("normal")]
         public async Task<IActionResult> PostAsync([FromBody] CreationModel creationModel)
         {
             var result = await _couchRepository.PostDocumentAsync(creationModel);
@@ -37,5 +38,21 @@ namespace creation_ms.Controllers
             return new UnprocessableEntityObjectResult(result.FailedReason);
         }
 
+        [HttpPost]
+        [Route("fecha")]
+        public async Task<IActionResult> Fecha([FromBody] CreationModel creationModel)
+        {
+            DateTime today = DateTime.Today;
+            creationModel.Begin_Date = today.ToString();
+            var result = await _couchRepository.PostDocumentAsync(creationModel);
+            if (result.IsSuccess)
+            {
+                var sResult = JsonConvert.DeserializeObject<SavedResult>(result.SuccessContentObject);
+                return new CreatedResult("Success", sResult);
+
+            }
+
+            return new UnprocessableEntityObjectResult(result.FailedReason);
+        }
     }
 }

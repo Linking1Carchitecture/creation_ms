@@ -3,7 +3,7 @@ version: '3.4'
 services:
   creation_ms:
     image: creationms:dev
-    container_name: creation_ms_1
+    container_name: creation_ms
     build:
       target: base
       labels:

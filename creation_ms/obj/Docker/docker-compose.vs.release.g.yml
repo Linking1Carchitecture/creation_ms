@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   creation_ms:
-    container_name: creation_ms_1
+    container_name: creation_ms
     build:
       labels:
         com.microsoft.created-by: "visual-studio"

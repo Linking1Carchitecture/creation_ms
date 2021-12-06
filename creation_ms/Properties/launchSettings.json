@@ -16,7 +16,7 @@
       }
     },
     "creation_ms": {
-      "commandName": "Project",
+      "commandName": "Docker",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

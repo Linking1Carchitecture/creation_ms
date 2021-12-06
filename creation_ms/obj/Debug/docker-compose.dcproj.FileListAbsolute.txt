@@ -10,7 +10,6 @@ C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\creat
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\Newtonsoft.Json.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\creation_ms.pdb
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
