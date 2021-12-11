@@ -48,7 +48,7 @@ namespace creation_ms.DBContext
             }
             return response;
         }*/
-        /*
+        
         public async Task<HttpClientResponse> GetDocumentAsync(string id)
         {
             HttpClientResponse response = new HttpClientResponse();
@@ -68,7 +68,7 @@ namespace creation_ms.DBContext
                 response.FailedReason = dbResult.ReasonPhrase;
             }
             return response;
-        }*/
+        }
 
         public async Task<HttpClientResponse> PostDocumentAsync(CreationModel creationModel)
         {

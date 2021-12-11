@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>dac71818-3af8-472b-8b41-1ca0d8ed9252</ProjectGuid>
+    <ProjectGuid>77c24a8c-22ba-459a-b1ff-2537e0a6f649</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>creation_ms</DockerServiceName>

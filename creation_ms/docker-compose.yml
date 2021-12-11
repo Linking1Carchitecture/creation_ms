@@ -7,9 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "49155:49155"
-    expose:
-      - "49155"
+      - "2307:2307"
 
   couchdb:
     image: couchdb:latest

@@ -4,8 +4,10 @@ using creation_ms.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,8 +33,12 @@ namespace creation_ms.Controllers
             if (result.IsSuccess)
             {
                 var sResult = JsonConvert.DeserializeObject<SavedResult>(result.SuccessContentObject);
-                return new CreatedResult("Success", sResult);
+                Trace.WriteLine(creationModel.Id_llam);
+                //return new CreatedResult("Success", sResult);
 
+                var result2 = _couchRepository.GetDocumentAsync(creationModel.Id_llam);
+
+                return Ok(result2);
             }
 
             return new UnprocessableEntityObjectResult(result.FailedReason);
@@ -54,5 +60,6 @@ namespace creation_ms.Controllers
 
             return new UnprocessableEntityObjectResult(result.FailedReason);
         }
+
     }
 }
