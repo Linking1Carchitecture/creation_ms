@@ -35,10 +35,10 @@ namespace creation_ms.Controllers
                 var sResult = JsonConvert.DeserializeObject<SavedResult>(result.SuccessContentObject);
                 Trace.WriteLine(creationModel.Id_llam);
                 //return new CreatedResult("Success", sResult);
+                var sResult2 = JsonConvert.DeserializeObject<CreationModel>(Newtonsoft.Json.JsonConvert.SerializeObject(creationModel));
+                return new CreatedResult("Success", sResult2);
 
-                var result2 = _couchRepository.GetDocumentAsync(creationModel.Id_llam);
-
-                return Ok(result2);
+                //return new CreatedResult("Success",Newtonsoft.Json.JsonConvert.SerializeObject(creationModel));
             }
 
             return new UnprocessableEntityObjectResult(result.FailedReason);
