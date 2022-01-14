@@ -53,9 +53,15 @@ namespace creation_ms.Controllers
             var result = await _couchRepository.PostDocumentAsync(creationModel);
             if (result.IsSuccess)
             {
+                /*
                 var sResult = JsonConvert.DeserializeObject<SavedResult>(result.SuccessContentObject);
                 return new CreatedResult("Success", sResult);
-
+                */
+                var sResult = JsonConvert.DeserializeObject<SavedResult>(result.SuccessContentObject);
+                Trace.WriteLine(creationModel.Id_llam);
+                //return new CreatedResult("Success", sResult);
+                var sResult2 = JsonConvert.DeserializeObject<CreationModel>(Newtonsoft.Json.JsonConvert.SerializeObject(creationModel));
+                return new CreatedResult("Success", sResult2);
             }
 
             return new UnprocessableEntityObjectResult(result.FailedReason);
