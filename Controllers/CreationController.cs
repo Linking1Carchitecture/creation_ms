@@ -44,6 +44,28 @@ namespace creation_ms.Controllers
             return new UnprocessableEntityObjectResult(result.FailedReason);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            var result = await _couchRepository.GetDocumentAsync(id.ToString(),1);
+            
+            if (result.IsSuccess)
+            {
+                var test = JsonConvert.DeserializeObject<ListCreationModel>(result.SuccessContentObject);
+                var result2 = await _couchRepository.GetDocumentAsync(test.rows[0].id,0);
+                if (result2.IsSuccess)
+                {
+                    var sResult2 = JsonConvert.DeserializeObject<CreationModel>(result2.SuccessContentObject);
+                    return new OkObjectResult(sResult2);
+                }
+                    var sResult = JsonConvert.DeserializeObject<ViewCreationModel>(result.SuccessContentObject);
+                //return new OkObjectResult(sResult2);
+                //return sResult.total_rows;
+            }
+            //return new NotFoundObjectResult("NotFound");
+            return new NotFoundObjectResult(result);
+        }
+
         [HttpPost]
         [Route("fecha")]
         public async Task<IActionResult> Fecha([FromBody] CreationModel creationModel)

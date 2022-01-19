@@ -11,7 +11,7 @@ namespace creation_ms.DBContext
     {
         Task<HttpClientResponse> PostDocumentAsync(CreationModel creationModel);
         //Task<HttpClientResponse> PutDocumentAsync(UpdateEnroll update);
-        Task<HttpClientResponse> GetDocumentAsync(string Id_llam);
+        Task<HttpClientResponse> GetDocumentAsync(string Id_llam, int v);
         //Task<HttpClientResponse> DeleteDocumentAsync(string id, string rev);
     }
 }

@@ -6,7 +6,6 @@ C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\obj\Debug\netco
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\obj\Debug\netcoreapp3.1\creation_ms.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\obj\Debug\netcoreapp3.1\creation_ms.RazorAssemblyInfo.cache
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\obj\Debug\netcoreapp3.1\creation_ms.RazorAssemblyInfo.cs
-C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\creation_ms.exe
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\creation_ms.deps.json
@@ -149,3 +148,4 @@ C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netco
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\enter\Desktop\UNAL\Arq Software\GoogleMeets\creation_ms\bin\Debug\netcoreapp3.1\launchSettings.json

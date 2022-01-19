@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -49,26 +50,51 @@ namespace creation_ms.DBContext
             return response;
         }*/
         
-        public async Task<HttpClientResponse> GetDocumentAsync(string id)
+        public async Task<HttpClientResponse> GetDocumentAsync(string id, int op)
         {
             HttpClientResponse response = new HttpClientResponse();
             var dbClient = DbHttpClient();
 
-            //CouchDB URL : GET http://{hostname_or_IP}:{Port}/{couchDbName}/{_id}  
-            var dbResult = await dbClient.GetAsync(_couchDbName + "/" + id);
-
-            if (dbResult.IsSuccessStatusCode)
+            if (op == 1)
             {
-                response.IsSuccess = true;
-                response.SuccessContentObject = await dbResult.Content.ReadAsStringAsync();
+                //CouchDB URL : GET http://{hostname_or_IP}:{Port}/{couchDbName}/{_id}  
+                String aux = @"/_design/Meets/_view/id?key=""" + id + @"""";
+                Console.Write(aux);
+                var dbResult = await dbClient.GetAsync(_couchDbName + aux);
+                //Trace.WriteLine(dbResult.Content.ReadAsStringAsync());
+                if (dbResult.IsSuccessStatusCode)
+                {
+                    response.IsSuccess = true;
+                    Console.WriteLine(dbResult.Content.ReadAsStringAsync());
+                    response.SuccessContentObject = await dbResult.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.FailedReason = dbResult.ReasonPhrase;
+                }
+                return response;
             }
             else
             {
-                response.IsSuccess = false;
-                response.FailedReason = dbResult.ReasonPhrase;
+                //CouchDB URL : GET http://{hostname_or_IP}:{Port}/{couchDbName}/{_id}  
+                var dbResult = await dbClient.GetAsync(_couchDbName + "/" + id);
+
+                if (dbResult.IsSuccessStatusCode)
+                {
+                    response.IsSuccess = true;
+                    response.SuccessContentObject = await dbResult.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.FailedReason = dbResult.ReasonPhrase;
+                }
+                return response;
             }
-            return response;
+            
         }
+
 
         public async Task<HttpClientResponse> PostDocumentAsync(CreationModel creationModel)
         {
